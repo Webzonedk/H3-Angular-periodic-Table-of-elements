@@ -1,0 +1,72 @@
+/* Main css */
+
+body {
+    background: #101318;
+    text-shadow: 0 0 0.4vw currentColor;
+}
+
+.square-container
+/* element colors */
+
+.elementBox {
+    width: 50px;
+    height: 50px;
+    border: 1px solid;
+    border-color: #28e2ff;
+}
+
+.alkali-metal {
+    color: #ecbe59;
+}
+
+.alkaline-earth-metal {
+    color: #dee955;
+}
+
+.lanthanoid {
+    color: #ec77a3;
+}
+
+.actinoid {
+    color: #c686cc;
+}
+
+.transition-metal {
+    color: #fd8572;
+}
+
+.post-transition-metal {
+    color: #28e2ff;
+}
+
+.metalloid {
+    color: #33eeb3;
+}
+
+.other-nonmetal {
+    color: #4ef05f;
+}
+
+.noble-gas {
+    color: #7199f7;
+}
+
+.unknown {
+    color: #c4c4c4;
+}
+
+.wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 2%;
+}
+
+
+/* --------------------------------------
+ ------------ROWS & COLUMNS --------------
+ ---------------------------------------*/
+
+
+/*
+@for $i from 1 through 10 .r#{$i} grid-row:
+ $i @for $i from 1 through 18 .c#{$i} grid-column: $i */

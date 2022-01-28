@@ -1,0 +1,18 @@
+<h2>This is planned to show the table of elements</h2>
+<button class="btn btn-danger" (click)="getData()">Get data</button>
+
+
+
+<div class="wrapper">
+
+</div>
+
+<div class="elementBox" *ngFor="let element of elements; index as i">
+    <span>
+      {{ element.atomicNumber }}
+      {{ element.symbol }}
+   {{ element.name }}
+   {{ element.atomicMass }}
+
+ </span>
+</div>
