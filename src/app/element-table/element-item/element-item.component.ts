@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ElementItemComponent implements OnInit {
 
-
+//Not in use yet. Lets see if I can get it to do something, if the data will eventually stop teasing me with odd data types
 
 
   ngOnInit(): void {

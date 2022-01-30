@@ -1,18 +1,40 @@
-<h2>This is planned to show the table of elements</h2>
-<button class="btn btn-danger" (click)="getData()">Get data</button>
+<h2 class="center">The periodic table of Elements</h2>
 
 
 
-<div class="wrapper">
+<table>
+    <!-- <th>This is the TableHeader</th> -->
+    <tr *ngFor="let element of gridArray; index as i">
+        <td *ngFor="let element of gridArray[i]; index as j">
+            <div class="box" *ngIf="gridArray[i][j].number != 0" [ngClass]="{
+            'alkali-metal':gridArray[i][j].category == 'alkali metal',
+            'alkaline-earth-metal':gridArray[i][j].category == 'alkaline earth metal',
+            'lanthanide':gridArray[i][j].category == 'lanthanide',
+            'actinide':gridArray[i][j].category == 'actinide',
+            'transition-metal':gridArray[i][j].category == 'transition metal',
+            'post-transition-metal':gridArray[i][j].category == 'post-transition metal',
+            'metalloid':gridArray[i][j].category == 'metalloid',
+            'other-nonmetal':gridArray[i][j].category.indexOf('nonmetal') >= 0,
+            'noble-gas':gridArray[i][j].category == 'noble gas',
+            'unknown':gridArray[i][j].category.indexOf('unknown') >= 0
+            }">
+                <div class="atomicNumber">
+                    {{gridArray[i][j].number}} {{gridArray[i][j].catagory}}
+                </div>
+                <div class="symbol center">
+                    {{gridArray[i][j].symbol}}
+                </div>
+                <div class="name center">
+                    {{gridArray[i][j].name}}
+                </div>
+                <div class="atomicMass center">
+                    {{gridArray[i][j].atomic_mass|number:'1.0-3'}}
+                </div>
 
-</div>
+            </div>
 
-<div class="elementBox" *ngFor="let element of elements; index as i">
-    <span>
-      {{ element.atomicNumber }}
-      {{ element.symbol }}
-   {{ element.name }}
-   {{ element.atomicMass }}
+        </td>
+    </tr>
 
- </span>
-</div>
+</table>
+<!-- <button class="btn btn-primary" (click)="calculateGrid()">click mig</button> -->
