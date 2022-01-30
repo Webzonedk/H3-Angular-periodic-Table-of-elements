@@ -1,25 +1,43 @@
-<h2 class="center">The periodic table of Elements</h2>
-
-
+<!-- <h2 class="center">The periodic table of Elements</h2> -->
 
 <table>
-    <!-- <th>This is the TableHeader</th> -->
+    <tr>
+        <th colSpan="18" class="center">
+            <div class="elementHeader center" *ngFor="let instance of boxHeader; index as i" [ngClass]="{
+              'alkali-metal':boxHeader[i] == 'Alkali Metal',
+              'alkaline-earth-metal':boxHeader[i] == 'Alkaline Earth Metal',
+              'lanthanide':boxHeader[i] == 'Lanthanoids',
+              'actinide':boxHeader[i] == 'Actinoids',
+              'transition-metal':boxHeader[i] == 'Transition Metal',
+              'post-transition-metal':boxHeader[i] == 'Post-transition Metals',
+              'metalloid':boxHeader[i] == 'Metalloids',
+              'other-nonmetal':boxHeader[i] == 'Other Nonmetal',
+              'noble-gas':boxHeader[i] == 'Noble Gasses',
+              'unknown':boxHeader[i]=='Unknown'
+            }"> {{ boxHeader[i] }}
+
+            </div>
+
+        </th>
+    </tr>
     <tr *ngFor="let element of gridArray; index as i">
+
+
         <td *ngFor="let element of gridArray[i]; index as j">
-            <div class="box" *ngIf="gridArray[i][j].number != 0" [ngClass]="{
-            'alkali-metal':gridArray[i][j].category == 'alkali metal',
-            'alkaline-earth-metal':gridArray[i][j].category == 'alkaline earth metal',
-            'lanthanide':gridArray[i][j].category == 'lanthanide',
-            'actinide':gridArray[i][j].category == 'actinide',
-            'transition-metal':gridArray[i][j].category == 'transition metal',
-            'post-transition-metal':gridArray[i][j].category == 'post-transition metal',
-            'metalloid':gridArray[i][j].category == 'metalloid',
-            'other-nonmetal':gridArray[i][j].category.indexOf('nonmetal') >= 0,
-            'noble-gas':gridArray[i][j].category == 'noble gas',
-            'unknown':gridArray[i][j].category.indexOf('unknown') >= 0
-            }">
+            <div class="box" *ngIf="gridArray[i][j].number != 0" (click)="viewElement(i,j)" [ngClass]="{
+        'alkali-metal':gridArray[i][j].category == 'alkali metal',
+        'alkaline-earth-metal':gridArray[i][j].category == 'alkaline earth metal',
+        'lanthanide':gridArray[i][j].category == 'lanthanide',
+        'actinide':gridArray[i][j].category == 'actinide',
+        'transition-metal':gridArray[i][j].category == 'transition metal',
+        'post-transition-metal':gridArray[i][j].category == 'post-transition metal',
+        'metalloid':gridArray[i][j].category == 'metalloid',
+        'other-nonmetal':gridArray[i][j].category.indexOf('nonmetal') >= 0,
+        'unknown':gridArray[i][j].category.indexOf('unknown') >= 0,
+        'noble-gas':gridArray[i][j].category == 'noble gas'
+      }">
                 <div class="atomicNumber">
-                    {{gridArray[i][j].number}} {{gridArray[i][j].catagory}}
+                    {{gridArray[i][j].number}}
                 </div>
                 <div class="symbol center">
                     {{gridArray[i][j].symbol}}
@@ -34,7 +52,13 @@
             </div>
 
         </td>
+
     </tr>
 
 </table>
-<!-- <button class="btn btn-primary" (click)="calculateGrid()">click mig</button> -->
+
+
+<app-element-item *ngIf="show(); else error"></app-element-item>
+<ng-template #error>
+
+</ng-template>

@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ElementTableComponent } from './element-table/element-table.component';
-import{ ElementItemComponent} from './element-table/element-item/element-item.component';
+import{ ElementItemComponent} from './element-item/element-item.component';
 
 
 @NgModule({

@@ -10,3 +10,46 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
 }
+
+
+/* element colors */
+
+.alkali-metal {
+    color: #ecbe59 !important;
+}
+
+.alkaline-earth-metal {
+    color: #dee955;
+}
+
+.lanthanide {
+    color: #ec77a3;
+}
+
+.actinide {
+    color: #c686cc;
+}
+
+.transition-metal {
+    color: #fd8572;
+}
+
+.post-transition-metal {
+    color: #28e2ff;
+}
+
+.metalloid {
+    color: #33eeb3;
+}
+
+.other-nonmetal {
+    color: #4ef05f;
+}
+
+.noble-gas {
+    color: #7199f7;
+}
+
+.unknown {
+    color: #c4c4c4;
+}

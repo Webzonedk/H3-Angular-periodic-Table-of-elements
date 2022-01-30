@@ -1,5 +1,5 @@
 import { Element } from './../interfaces/element';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
 import { HandleDataService } from '../services/handle-data.service';
 
 @Component({
@@ -10,9 +10,13 @@ import { HandleDataService } from '../services/handle-data.service';
 
 export class ElementTableComponent implements OnInit {
 
+  parentMessage = "message from parent"
+
+
+  // array with the elements to keep them until destributed to gridArray
   elements: Element[] = [];
 
-  dummyElement: Element = {
+  @Output() dummyElement: Element = {
     name: "0",
     appearance: "0",
     atomic_mass: 0,
@@ -41,35 +45,41 @@ export class ElementTableComponent implements OnInit {
     cpk_hex: "0"
   };
 
+  //Array with catagories
+  boxHeader: string[] = ["Alkali Metal", "Alkaline Earth Metal", "Lanthanoids", "Actinoids", "Transition Metal", "Post-transition Metals", "Metalloids", "Other Nonmetal", "Noble Gasses", "Unknown"];
+  //2DArray to keep the data to be destributed in the frontend
   gridArray: any = [];
-  isReady: boolean = false;
-  show: boolean = false;
+
+  showInfo: boolean = false;
+
+
 
   constructor(private handleDataService: HandleDataService) {
+
     this.handleDataService.elements$.subscribe((elementsData: Element[]) => {
       next:
       if (this.elements.length !== elementsData.length) {
         this.elements = elementsData;
-        this.loadElements();
       }
     })
+
+
   }
 
   ngOnInit(): void {
-
+    //Getting tha data from the serviceHandler by running the loadElement method
     this.loadElements();
 
+    //My computer is really slow, so it needs a break to recieve all data before start calculating the grid
     setTimeout(() => {
       this.calculateGrid();
-      console.log(this.elements);
-    }, 10);
+    }, 20);
     // console.log(this.elements);
+    console.log(this.boxHeader[4]);
 
   }
 
-
-
-
+  //Getting tha data from the service handler
   loadElements() {
     this.handleDataService.getData();
   }
@@ -107,5 +117,18 @@ export class ElementTableComponent implements OnInit {
   }
 
 
+  viewElement(indexI: number, indexJ: number) {
+    this.handleDataService.sendElementToView(this.gridArray[indexI][indexJ]);
+    this.showInfo = true;
+  }
+
+
+  show(): boolean {
+    this.showInfo = this.showInfo;
+    return this.showInfo;
+  }
+
 
 }
+
+

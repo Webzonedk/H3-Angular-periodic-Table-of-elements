@@ -10,14 +10,10 @@ import { Element } from '../interfaces/element';
 
 export class DataService {
  // apiUrl: string = "https://periodic-table-elements-info.herokuapp.com/elements";
-  localJson: string = `./assets/data/elements.json`;
+  localJson: string = `./assets/data/elements.json`;//using a local json due to errors in the API
 
 
-
-
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) { }
 
   //Getting the data from the API
   getElements(): Observable<Element[]> {

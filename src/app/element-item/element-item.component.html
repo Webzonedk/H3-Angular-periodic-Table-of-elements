@@ -1,0 +1,42 @@
+<div class="elementInfo" *ngFor="let instance of elementToViewArray; index as i" [ngClass]="{
+  'alkali-metal':elementToViewArray[i].category == 'alkali metal',
+  'alkaline-earth-metal':elementToViewArray[i].category == 'alkaline earth metal',
+  'lanthanide':elementToViewArray[i].category == 'lanthanide',
+  'actinide':elementToViewArray[i].category == 'actinide',
+  'transition-metal':elementToViewArray[i].category == 'transition metal',
+  'post-transition-metal':elementToViewArray[i].category == 'post-transition metal',
+  'metalloid':elementToViewArray[i].category == 'metalloid',
+  'noble-gas':elementToViewArray[i].category == 'noble gas'
+}">
+    <h2> {{elementToViewArray[i].name}}</h2>
+    <p>Appearance: {{elementToViewArray[i].appearance}}</p>
+    <p>atomic mass: {{elementToViewArray[i].atomic_mass}}</p>
+    <p>boiling point: {{elementToViewArray[i].boil}}</p>
+    <p>category: {{elementToViewArray[i].category}}</p>
+    <p>density: {{elementToViewArray[i].density}}</p>
+    <p>discovered by: {{elementToViewArray[i].discovered_by}}</p>
+    <p>melting point: {{elementToViewArray[i].melt}}</p>
+    <p>molar heat: {{elementToViewArray[i].molar_heat}}</p>
+    <p>named by: {{elementToViewArray[i].named_by}}</p>
+    <p>number: {{elementToViewArray[i].number}}</p>
+    <p>period: {{elementToViewArray[i].period}}</p>
+    <p>phase: {{elementToViewArray[i].phase}}</p>
+    <p>source: {{elementToViewArray[i].source}}</p>
+    <p>spectral imghttps: {{elementToViewArray[i].spectral_imghttps}}</p>
+    <p>summary: {{elementToViewArray[i].summary}}</p>
+    <p>symbol: {{elementToViewArray[i].symbol}}</p>
+    <p>shells: {{elementToViewArray[i].shells}}</p>
+    <p>electron configuration: {{elementToViewArray[i].electron_configuration}}</p>
+    <p>electron configuration semantic: {{elementToViewArray[i].electron_configuration_semantic}}</p>
+    <p>electron affinity: {{elementToViewArray[i].electron_affinity}}</p>
+    <p>electronegativity pauling: {{elementToViewArray[i].electronegativity_pauling}}</p>
+    <p>ionization energies: {{elementToViewArray[i].ionization_energies}}</p>
+    <p>cpk hex: {{elementToViewArray[i].cpk_hex}}</p>
+
+</div>
+
+<!-- for some reason, this does not work in this component, as it does i elementTable. Quite strange really.
+It gives an error on the loop that I can not identify -->
+
+<!-- 'other-nonmetal':elementToViewArray[i].category.indexOf('nonmetal') >= 0,
+  'unknown':elementToViewArray[i].category.indexOf('unknown') >= 0, -->
