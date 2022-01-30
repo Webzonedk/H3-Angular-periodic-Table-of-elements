@@ -3,7 +3,7 @@
 <table>
     <tr>
         <th colSpan="18" class="center">
-            <div class="elementHeader center" *ngFor="let instance of boxHeader; index as i" [ngClass]="{
+            <div class="elementHeader center" *ngFor="let instance of this.boxHeader; index as i" [ngClass]="{
               'alkali-metal':boxHeader[i] == 'Alkali Metal',
               'alkaline-earth-metal':boxHeader[i] == 'Alkaline Earth Metal',
               'lanthanide':boxHeader[i] == 'Lanthanoids',

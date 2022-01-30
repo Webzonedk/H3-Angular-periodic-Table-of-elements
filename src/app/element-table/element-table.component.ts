@@ -15,7 +15,7 @@ export class ElementTableComponent implements OnInit {
 
   // array with the elements to keep them until destributed to gridArray
   elements: Element[] = [];
-
+//Dummy element, to fill 2d array before filling in real data. Just as a placeholder, to avoid empty indexes
   @Output() dummyElement: Element = {
     name: "0",
     appearance: "0",
@@ -49,7 +49,7 @@ export class ElementTableComponent implements OnInit {
   boxHeader: string[] = ["Alkali Metal", "Alkaline Earth Metal", "Lanthanoids", "Actinoids", "Transition Metal", "Post-transition Metals", "Metalloids", "Other Nonmetal", "Noble Gasses", "Unknown"];
   //2DArray to keep the data to be destributed in the frontend
   gridArray: any = [];
-
+//boolean to use for showin element info
   showInfo: boolean = false;
 
 

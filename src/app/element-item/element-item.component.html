@@ -1,4 +1,4 @@
-<div class="elementInfo" *ngFor="let instance of elementToViewArray; index as i" [ngClass]="{
+<div class="elementInfo" *ngFor="let instance of this.elementToViewArray; index as i" [ngClass]="{
   'alkali-metal':elementToViewArray[i].category == 'alkali metal',
   'alkaline-earth-metal':elementToViewArray[i].category == 'alkaline earth metal',
   'lanthanide':elementToViewArray[i].category == 'lanthanide',
@@ -6,7 +6,9 @@
   'transition-metal':elementToViewArray[i].category == 'transition metal',
   'post-transition-metal':elementToViewArray[i].category == 'post-transition metal',
   'metalloid':elementToViewArray[i].category == 'metalloid',
-  'noble-gas':elementToViewArray[i].category == 'noble gas'
+  'noble-gas':elementToViewArray[i].category == 'noble gas',
+  'other-nonmetal':elementToViewArray[i].category.indexOf('nonmetal') >= 0,
+  'unknown':elementToViewArray[i].category.indexOf('unknown') >= 0
 }">
     <h2> {{elementToViewArray[i].name}}</h2>
     <p>Appearance: {{elementToViewArray[i].appearance}}</p>
@@ -34,9 +36,3 @@
     <p>cpk hex: {{elementToViewArray[i].cpk_hex}}</p>
 
 </div>
-
-<!-- for some reason, this does not work in this component, as it does i elementTable. Quite strange really.
-It gives an error on the loop that I can not identify -->
-
-<!-- 'other-nonmetal':elementToViewArray[i].category.indexOf('nonmetal') >= 0,
-  'unknown':elementToViewArray[i].category.indexOf('unknown') >= 0, -->
