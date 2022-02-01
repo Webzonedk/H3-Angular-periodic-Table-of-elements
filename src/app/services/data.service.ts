@@ -18,8 +18,8 @@ export class DataService {
   //Getting the data from the API or alternative from a local json file
   getElements(): Observable<Element[]> {
 
-    return this.http.get<Element[]>(this.apiUrl+`/getElements`);
-    // return this.http.get<Element[]>(this.localJson);
+    return this.http.get<Element[]>(this.apiUrl+`/getElements`); //Api get
+    // return this.http.get<Element[]>(this.localJson);   //Local file get
   }
 
 
