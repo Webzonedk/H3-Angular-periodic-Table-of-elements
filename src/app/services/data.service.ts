@@ -1,7 +1,7 @@
+import { Element } from '../interfaces/element';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Element } from '../interfaces/element';
 
 
 @Injectable({
@@ -10,7 +10,7 @@ import { Element } from '../interfaces/element';
 
 export class DataService {
   apiUrl: string = "http://localhost:3000";
-  localJson: string = `./assets/data/elements.json`;//using a local json due to errors in the API
+  localJson: string = `./assets/data/elements.json`;//using a local json due to errors in the first API that I tried to use, so I build my own instead.
 
 
   constructor(private http: HttpClient) { }
